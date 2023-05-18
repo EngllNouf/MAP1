@@ -6,11 +6,14 @@ import javax.swing.JButton;
 import org.jxmapviewer.viewer.DefaultWaypoint;
 import org.jxmapviewer.viewer.GeoPosition;
 
-
 public class MyWaypoint extends DefaultWaypoint {
 
-    public MyWaypoint(String start_Location, PointType pointType, EventWaypoint event, GeoPosition geoPosition) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public PointType getPointType() {
+        return pointType;
+    }
+
+    public void setPointType(PointType pointType) {
+        this.pointType = pointType;
     }
 
     public String getName() {
@@ -29,10 +32,11 @@ public class MyWaypoint extends DefaultWaypoint {
         this.button = button;
     }
 
-    public MyWaypoint(String name, GeoPosition coord) {
+    public MyWaypoint(String name, PointType pointType, EventWaypoint event, GeoPosition coord) {
         super(coord);
         this.name = name;
-        initButton();
+        this.pointType = pointType;
+        initButton(event);
     }
 
     public MyWaypoint() {
@@ -40,22 +44,16 @@ public class MyWaypoint extends DefaultWaypoint {
 
     private String name;
     private JButton button;
+    private PointType pointType;
 
-    private void initButton() {
+    private void initButton(EventWaypoint event) {
         button = new ButtonWaypoint();
         button.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Click : " + name); 
-
-}
-                
-            
+            public void actionPerformed(ActionEvent ae) {
+                event.selected(MyWaypoint.this);
+            }
         });
-    }
-
-    public PointType getPointType() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public static enum PointType {

@@ -323,27 +323,25 @@ public class Main_1 extends javax.swing.JFrame {
         jXMapViewer.setTileFactory(tileFactory);
     }                                            
 
-    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {                                       
-    waypoints.add(new MyWaypoint("Test 001", new GeoPosition(21.6183122,39.1093823)));
-    
-    initWaypoint();
-    }                                      
+    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
 
-    private void cmdClearActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    }//GEN-LAST:event_cmdAddActionPerformed
+
+    private void cmdClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdClearActionPerformed
         clearWaypoint();
-    }                                        
+    }//GEN-LAST:event_cmdClearActionPerformed
 
-    private void menuStartActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void menuStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuStartActionPerformed
         GeoPosition geop = jXMapViewer.convertPointToGeoPosition(mousePosition);
         MyWaypoint wayPoint = new MyWaypoint("Start Location", MyWaypoint.PointType.START, event, new GeoPosition(geop.getLatitude(), geop.getLongitude()));
         addWaypoint(wayPoint);
-    }                                         
+    }//GEN-LAST:event_menuStartActionPerformed
 
-    private void menuEndActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void menuEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEndActionPerformed
         GeoPosition geop = jXMapViewer.convertPointToGeoPosition(mousePosition);
         MyWaypoint wayPoint = new MyWaypoint("End Location", MyWaypoint.PointType.END, event, new GeoPosition(geop.getLatitude(), geop.getLongitude()));
         addWaypoint(wayPoint);
-    }                                       
+    }//GEN-LAST:event_menuEndActionPerformed
 
     private void jXMapViewerMouseReleased(java.awt.event.MouseEvent evt) {                                          
         if (SwingUtilities.isRightMouseButton(evt)) {
